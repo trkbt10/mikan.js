@@ -13,3 +13,7 @@ const case3 = `あゝいゝな　せいせいするな
 岩頸だつて岩鐘だつて
 みんな時間のないころのゆめをみてゐるのだ`;
 console.log(Budou(case3));
+
+const text = Budou('常に最新、最高のモバイル。Androidを開発した同じチームから。');
+
+console.log(text);
