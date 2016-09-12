@@ -2,10 +2,8 @@ const re = new RegExp(/[一-龠々〆ヵヶゝ]+|[ぁ-んゝ]+|[ァ-ヴー]+|[a-
 const joshi = new RegExp(/(でなければ|について|ならば|までを|までの|くらい|なのか|として|とは|なら|から|まで|して|だけ|より|ほど|など|って|では|は|で|を|の|が|に|へ|と|て|じ)/g);
 
 function SimpleAnalyze(str = '') {
-  const s = str.replace(joshi, "$1|");
-  const ary = s.split("|");
   let result = [];
-  ary.forEach((word) => {
+  str.replace(joshi, "$1|").split("|").forEach((word) => {
     const token = word.match(re);
     if (token) {
       result = result.concat(token);
@@ -24,17 +22,13 @@ export default function Budou(text = '', userOption = {}) {
   option.style && (attr += ` style="${option.style}"`);
   option.className && (attr += ` class="${option.className}"`);
 
-  const tokens = SimpleAnalyze(text);
   const words = [];
-  tokens.forEach((word) => {
+  SimpleAnalyze(text).forEach((word) => {
     if (word.match(/[,.、。！!？?()（）「」『』 　]+/) || word.match(joshi)) {
       words[words.length - 1] += word;
     } else {
       words.push(word);
     }
   });
-  const html = words.map((word) => {
-    return `<span${attr}>${word}</span>`
-  });
-  return html.join('');
+  return words.map((word) => `<span${attr}>${word}</span>`).join('');
 }
