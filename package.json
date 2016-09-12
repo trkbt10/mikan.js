@@ -1,6 +1,6 @@
 {
   "name": "budou.js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Japanese Line Break Organizer",
   "main": "lib/budou.js",
   "scripts": {
