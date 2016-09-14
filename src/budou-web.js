@@ -1,2 +1,1 @@
-import Budou from './budou.js';
-window.Budou = Budou;
+window.Budou = require('./budou.js');

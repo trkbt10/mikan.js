@@ -1,4 +1,4 @@
-import Budou from '../src/budou.js';
+const Budou = require('../src/budou.js');
 const {ok, equal} = require('assert');
 
 const case1 = Budou('我輩は猫である。名前はまだない。');

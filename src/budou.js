@@ -12,7 +12,7 @@ function SimpleAnalyze(str = '') {
   return result;
 }
 
-export default function Budou(text = '', userOption = {}) {
+module.exports = function Budou(text = '', userOption = {}) {
   const defaultOption = {
     style : 'display:inline-block',
     className : ''
