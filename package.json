@@ -1,10 +1,10 @@
 {
-  "name": "budou.js",
+  "name": "mikan.js",
   "version": "1.0.3",
   "description": "Japanese Line Break Organizer",
-  "main": "lib/budou.js",
+  "main": "src/mikan.js",
   "scripts": {
-    "prepublish": "$(npm bin)/babel src/budou.js --out-file lib/budou.js && $(npm bin)/browserify ./src/budou-web.js -o ./lib/budou-web.js -t babelify -t uglifyify",
+    "prepublish": "$(npm bin)/babel src/mikan.js --out-file lib/mikan.js && $(npm bin)/browserify ./src/mikan-web.js -o ./lib/mikan-web.js -t babelify -t uglifyify",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

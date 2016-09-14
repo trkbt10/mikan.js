@@ -12,7 +12,7 @@ function SimpleAnalyze(str = '') {
   return result;
 }
 
-module.exports = function Budou(text = '', userOption = {}) {
+module.exports = function Mikan(text = '', userOption = {}) {
   const defaultOption = {
     style : 'display:inline-block',
     className : ''
