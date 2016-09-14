@@ -1,22 +1,15 @@
 {
   "name": "mikan.js",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Japanese Line Break Organizer",
-  "main": "src/mikan.js",
+  "main": "lib/mikan-web.js",
   "scripts": {
-    "prepublish": "$(npm bin)/babel src/mikan.js --out-file lib/mikan.js && $(npm bin)/browserify ./src/mikan-web.js -o ./lib/mikan-web.js -t babelify -t uglifyify",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test/mikan-test.js"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "assert": "^1.4.1",
-    "babel-cli": "^6.14.0",
-    "babel-polyfill": "^6.13.0",
-    "babel-preset-es2015": "^6.14.0",
-    "babelify": "^7.3.0",
-    "browserify": "^13.0.1",
-    "uglifyify": "^3.0.2"
+    "assert": "^1.4.1"
   }
 }
