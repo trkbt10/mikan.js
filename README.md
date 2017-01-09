@@ -14,15 +14,15 @@ const text = Mikan('常に最新、最高のモバイル。Androidを開発し�
 
 console.log(text);
 /*
-<span style="display:inline-block">常に</span>
-<span style="display:inline-block">最新、</span>
-<span style="display:inline-block">最高の</span>
-<span style="display:inline-block">モバイル。</span>
-<span style="display:inline-block">Androidを</span>
-<span style="display:inline-block">開発</span>
-<span style="display:inline-block">した</span>
-<span style="display:inline-block">同じ</span>
-<span style="display:inline-block">チームから。</span>
+<span style="display:inline-block" role="presentation">常に</span>
+<span style="display:inline-block" role="presentation">最新、</span>
+<span style="display:inline-block" role="presentation">最高の</span>
+<span style="display:inline-block" role="presentation">モバイル。</span>
+<span style="display:inline-block" role="presentation">Androidを</span>
+<span style="display:inline-block" role="presentation">開発</span>
+<span style="display:inline-block" role="presentation">した</span>
+<span style="display:inline-block" role="presentation">同じ</span>
+<span style="display:inline-block" role="presentation">チームから。</span>
 */
 ```
 

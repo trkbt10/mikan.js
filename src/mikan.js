@@ -31,6 +31,7 @@
 
     var defaultOption = {
       style : 'display:inline-block',
+      role: 'presentation',
       className : ''
     };
     var option = {};
@@ -40,6 +41,7 @@
 
     var attr = '';
     option.style && (attr += " style=\"" + option.style + "\"");
+    option.role && (attr += " role=\"" + option.role + "\"");
     option.className && (attr += " class=\"" + option.className + "\"");
 
     var words = [];
