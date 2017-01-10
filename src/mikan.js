@@ -17,13 +17,15 @@
   var periods  = /([\.\,。、！\!？\?]+)/
 
   function SimpleAnalyze(str = '') {
-    var words = str.split(keywords).filter((word) => word);
+    var words = str.split(keywords).filter(function(word) {
+      return word;
+    });
 
     var result = [];
     var prevWordType = '';
     words.forEach(function(word) {
       var token = word.match(joshi) || word.match(periods);
-      // 前の言葉がキーワードで、かつ、ワードがひらがなならば結合する。
+      // 単語後の跡が
       if (token || (prevWordType === 'keyword' && word.match(/[ぁ-んゝ]+/g))) {
         result[result.length - 1] += (token instanceof Array) ? token.shift() : word;
         prevWordType = '';
