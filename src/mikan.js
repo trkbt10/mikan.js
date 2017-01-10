@@ -11,17 +11,28 @@
     root.Mikan = factory();
   }
 })(this, function () {
-  var re = new RegExp(/[一-龠々〆ヵヶゝ]+|[ぁ-んゝ]+|[ァ-ヴー]+|[a-zA-Z0-9]+|[ａ-ｚＡ-Ｚ０-９]+|[,.、。！!？?()（）「」『』 　]+/g);
-  var joshi = new RegExp(/(でなければ|について|ならば|までを|までの|くらい|なのか|として|とは|なら|から|まで|して|だけ|より|ほど|など|って|では|は|で|を|の|が|に|へ|と|て|じ)/g);
+
+  var joshi = /^(でなければ|について|ならば|までを|までの|くらい|なのか|として|とは|なら|から|まで|して|だけ|より|ほど|など|って|では|は|で|を|の|が|に|へ|と|て|じ)$/g;
+  var keywords = /([\(（「『]+.*[\)）」』]|[一-龠々〆ヵヶゝ]+|[ぁ-んゝ]+|[ァ-ヴー]+|[a-zA-Z0-9]+|[ａ-ｚＡ-Ｚ０-９]+)/g;
+  var periods  = /([\.\,。、！\!？\?]+)/
 
   function SimpleAnalyze(str = '') {
+    var words = str.split(keywords).filter((word) => word);
+
     var result = [];
-    str.replace(joshi, "$1|").split("|").forEach(function(word) {
-      var token = word.match(re);
-      if (token) {
-        result = result.concat(token);
+    var prevWordType = '';
+    words.forEach(function(word) {
+      var token = word.match(joshi) || word.match(periods);
+      // 前の言葉がキーワードで、かつ、ワードがひらがなならば結合する。
+      if (token || (prevWordType === 'keyword' && word.match(/[ぁ-んゝ]+/g))) {
+        result[result.length - 1] += (token instanceof Array) ? token.shift() : word;
+        prevWordType = '';
+        return;
       }
+      prevWordType = 'keyword';
+      result.push(word);
     });
+
     return result;
   }
 
@@ -44,14 +55,7 @@
     option.role && (attr += " role=\"" + option.role + "\"");
     option.className && (attr += " class=\"" + option.className + "\"");
 
-    var words = [];
-    SimpleAnalyze(text).forEach(function(word) {
-      if (word.match(/[,.、。！!？?()（）「」『』 　]+/) || word.match(joshi)) {
-        words[words.length - 1] += word;
-      } else {
-        words.push(word);
-      }
-    });
+    var words = SimpleAnalyze(text);
 
     var html = words.map(function(word) {
       return '<span' + attr +'>' + word + '</span>'
