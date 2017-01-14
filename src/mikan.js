@@ -16,7 +16,7 @@
   var keywords = /([\(（「『]+.*[\)）」』]|[a-zA-Z0-9]+\.[a-z]{2,}|[一-龠々〆ヵヶゝ]+|[ぁ-んゝ]+|[ァ-ヴー]+|[a-zA-Z0-9]+|[ａ-ｚＡ-Ｚ０-９]+)/g;
   var periods  = /([\.\,。、！\!？\?]+)$/
 
-  function SimpleAnalyze(str = '') {
+  function SimpleAnalyze(str) {
     var words = str.split(keywords).filter(function(word) {
       return word;
     });
