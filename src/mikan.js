@@ -13,8 +13,8 @@
 })(this, function () {
 
   var joshi = /^(でなければ|について|ならば|までを|までの|くらい|なのか|として|とは|なら|から|まで|して|だけ|より|ほど|など|って|では|は|で|を|の|が|に|へ|と|て|じ)$/g;
-  var keywords = /([\(（「『]+.*[\)）」』]|[一-龠々〆ヵヶゝ]+|[ぁ-んゝ]+|[ァ-ヴー]+|[a-zA-Z0-9]+|[ａ-ｚＡ-Ｚ０-９]+)/g;
-  var periods  = /([\.\,。、！\!？\?]+)/
+  var keywords = /([\(（「『]+.*[\)）」』]|[a-zA-Z0-9]+\.[a-z]{2,}|[一-龠々〆ヵヶゝ]+|[ぁ-んゝ]+|[ァ-ヴー]+|[a-zA-Z0-9]+|[ａ-ｚＡ-Ｚ０-９]+)/g;
+  var periods  = /([\.\,。、！\!？\?]+)$/
 
   function SimpleAnalyze(str = '') {
     var words = str.split(keywords).filter(function(word) {
@@ -25,7 +25,7 @@
     var prevWordType = '';
     words.forEach(function(word) {
       var token = word.match(joshi) || word.match(periods);
-      // 単語後の跡が
+      // 単語のあとの文字がひらがななら結合する
       if (token || (prevWordType === 'keyword' && word.match(/[ぁ-んゝ]+/g))) {
         result[result.length - 1] += (token instanceof Array) ? token.shift() : word;
         prevWordType = '';
