@@ -64,5 +64,6 @@
     }).join('');
     return html;
   }
+  Mikan.split = SimpleAnalyze;
   return Mikan;
 });
