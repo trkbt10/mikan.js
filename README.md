@@ -11,7 +11,6 @@ nodeで用いる場合
 ```javascript
 const mikan = require('mikanjs');
 console.log(mikan('常に最新、最高のモバイル。Androidを開発した同じチームから。'));
-
 /*
 <span style="display:inline-block" role="presentation">常に</span>
 <span style="display:inline-block" role="presentation">最新、</span>
@@ -22,6 +21,9 @@ console.log(mikan('常に最新、最高のモバイル。Androidを開発した
 <span style="display:inline-block" role="presentation">同じ</span>
 <span style="display:inline-block" role="presentation">チームから。</span>
 */
+
+console.log(mikan.split('常に最新、最高のモバイル。Androidを開発した同じチームから。'));
+// ['常に', '最新、', '最高の', 'モバイル。', 'Androidを', '開発した', '同じ', 'チームから。']
 ```
 
 Webで用いる場合
@@ -33,4 +35,14 @@ Webで用いる場合
   var sampleElement = document.getElementById('sample');
   sampleElement.innerHTML = Mikan('常に最新、最高のモバイル。Androidを開発した同じチームから。');
 </script>
+```
+
+Reactで用いる場合
+```javascript
+<div dangerouslySetInnerHTML={{__html : Mikan('常に最新、最高のモバイル。Androidを開発した同じチームから。')}} />
+```
+
+もしくは
+```javascript
+{Mikan.split('常に最新、最高のモバイル。Androidを開発した同じチームから。').map((text) => <span>{text}</span>)}
 ```
