@@ -23,6 +23,12 @@ const case5 = Mikan('このmikan.jsというライブラリは、スマートな
 const case5result = [ 'この', 'mikan.jsという', 'ライブラリは、', 'スマートな', '文字区切りを', '可能にします。' ];
 ok(tagToArray(case5).every((txt, i) => txt === case5result[i]));
 
+const case6 = Mikan('「あれ」でもない、「これ」でもない。');
+const case6Split = Mikan.split('「あれ」でもない、「これ」でもない。');
+const case6result = ['「あれ」でもない、', '「これ」でもない。'];
+ok(case6.indexOf('<span style="display:inline-block" role="presentation">') > -1);
+ok(tagToArray(case6).every((txt, i) => txt === case6result[i]));
+ok(case6Split.every((txt, i) => txt === case6result[i]));
 
 
 function tagToArray(text = "") {
