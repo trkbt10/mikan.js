@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Nexus</title>
+  <title>Demo</title>
   <link href="//fonts.googleapis.com/css?family=RobotoDraft:100,300,400,500,700" rel=
     "stylesheet">
 </head>
 <body>
+  <input type="text" placeholder="ここに文章を入力" id="input"/>
   <div id="sample">
 
   </div>
@@ -14,6 +15,10 @@
   <script>
     var sampleElement = document.getElementById('sample');
     sampleElement.innerHTML = Mikan('やりたいことのそばにいる');
+    var input = document.getElementById('input')
+    input.addEventListener('change', function(e) {
+      sampleElement.innerHTML = Mikan(e.target.value);
+    })
   </script>
   <style>
   body {
