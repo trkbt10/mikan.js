@@ -4,12 +4,13 @@
   "description": "Japanese Line Break Organizer",
   "main": "src/mikan.js",
   "scripts": {
-    "test": "node test/mikan-test.js"
+    "test": "ava"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "assert": "^1.4.1"
+    "assert": "^1.4.1",
+    "ava": "^0.19.1"
   }
 }
