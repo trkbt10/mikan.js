@@ -1,5 +1,6 @@
 # Mikan.js - 機械学習を用いていない日本語改行問題へのソリューション
 mikan.jsは、正規表現を用いた簡易形態素解析による、単語の改行問題への解決策を提供します。
+[demo](https://trkbt10.github.io/mikan.js/)
 
 ## インストール
 `npm install mikanjs`
