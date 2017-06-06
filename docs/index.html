@@ -14,11 +14,26 @@
   <script src="../src/mikan.js"></script>
   <script>
     var sampleElement = document.getElementById('sample');
-    sampleElement.innerHTML = Mikan('やりたいことのそばにいる');
-    var input = document.getElementById('input')
+    var input = document.getElementById('input');
+
+    sampleElement.appendChild(mikanHTML('やりたいことのそばにいる'));
     input.addEventListener('change', function(e) {
-      sampleElement.innerHTML = Mikan(e.target.value);
-    })
+      var result = mikanHTML(e.target.value);
+      while (sampleElement.firstChild) {
+        sampleElement.removeChild(sampleElement.firstChild);
+      }
+      sampleElement.appendChild(result);
+    });
+
+    function mikanHTML(sentence) {
+      var tokens = Mikan.split(sentence);
+      var container = document.createElement('div');
+      tokens.forEach(function(token) {
+        var textNode = document.createTextNode(token);
+        container.appendChild(textNode);
+      })
+      return container;
+    }
   </script>
   <style>
   body {
