@@ -38,7 +38,14 @@ test(t => {
   const source = '原稿と防災服を用意してくれ'
   const expected = [ '原稿と', '防災服を', '用意してくれ' ]
   const result = mikan.split(source)
-  t.deepEqual(expected, expected)
+  t.deepEqual(result, expected)
+})
+
+test(t => {
+  const source = '1192'
+  const expected = [ '1192' ]
+  const result = mikan.split(source)
+  t.deepEqual(result, expected)
 })
 
 test(t => {
