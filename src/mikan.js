@@ -15,8 +15,10 @@
   var joshi = /(でなければ|について|かしら|くらい|けれど|なのか|ばかり|ながら|ことよ|こそ|こと|さえ|しか|した|たり|だけ|だに|だの|つつ|ても|てよ|でも|とも|から|など|なり|ので|のに|ほど|まで|もの|やら|より|って|で|と|な|に|ね|の|も|は|ば|へ|や|わ|を|か|が|さ|し|ぞ|て)/g;
   var keywords = /(\&nbsp;|[a-zA-Z0-9]+\.[a-z]{2,}|[一-龠々〆ヵヶゝ]+|[ぁ-んゝ]+|[ァ-ヴー]+|[a-zA-Z0-9]+|[ａ-ｚＡ-Ｚ０-９]+)/g;
   var periods = /([\.\,。、！\!？\?]+)$/g
-  var bracketsBegin = /([\(（「『])/g
-  var bracketsEnd = /([\)）」』])/g
+  var bracketsBegin = /([〈《「『｢（(\[【〔〚〖〘❮❬❪❨(<{❲❰｛❴])/g
+  var bracketsEnd = /([〉》」』｣)）\]】〕〗〙〛}>\)❩❫❭❯❱❳❵｝])/g
+
+
 
   function SimpleAnalyze(str) {
     var words = str.split(keywords).reduce(function(prev, word) {
