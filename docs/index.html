@@ -29,8 +29,10 @@
       var tokens = Mikan.split(sentence);
       var container = document.createElement('div');
       tokens.forEach(function(token) {
+        var sp = document.createElement('span');
         var textNode = document.createTextNode(token);
-        container.appendChild(textNode);
+        sp.appendChild(textNode);
+        container.appendChild(sp);
       })
       return container;
     }
