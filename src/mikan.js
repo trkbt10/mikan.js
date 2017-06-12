@@ -30,7 +30,6 @@
     }).filter(function(word) {
       return word;
     });
-
     var result = [];
     var prevType = '';
     var prevWord = '';
@@ -64,7 +63,7 @@
       }
 
       // 単語のあとの文字がひらがななら結合する
-      if (token || (prevType === 'keyword' && word.match(/[ぁ-んゝ]+/g))) {
+      if (result.length > 1 && token || (prevType === 'keyword' && word.match(/[ぁ-んゝ]+/g))) {
         result[result.length - 1] += word;
         prevType = ''
         prevWord = word;

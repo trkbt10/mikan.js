@@ -47,6 +47,12 @@ test(t => {
   const result = mikan.split(source)
   t.deepEqual(result, expected)
 })
+test(t => {
+  const source = 'やりたいことのそばにいる'
+  const expected = [ "やりたいことの", "そばに", "いる" ]
+  const result = mikan.split(source)
+  t.deepEqual(result, expected)
+})
 
 test(t => {
   const source = 'このmikan.jsというライブラリは、スマートな文字区切りを可能にします。'
