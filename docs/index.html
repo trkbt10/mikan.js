@@ -31,6 +31,9 @@
       tokens.forEach(function(token) {
         var sp = document.createElement('span');
         var textNode = document.createTextNode(token);
+        sp.style.display = 'inline-block'
+        sp.style.whiteSpace = 'nowrap'
+
         sp.appendChild(textNode);
         container.appendChild(sp);
       })
