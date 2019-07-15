@@ -1,8 +1,12 @@
 {
   "name": "mikan.js",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Japanese Line Break Organizer",
   "main": "src/mikan.js",
+  "types": "src/mikan.d.ts",
+  "files": [
+    "src"
+  ],
   "scripts": {
     "test": "ava"
   },
