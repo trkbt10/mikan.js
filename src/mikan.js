@@ -1,3 +1,5 @@
+/*! mikan.js v1.0.11 | MIT License | https://github.com/trkbt10/mikan.js/blob/master/LICENSE */
+
 "use strict";
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
