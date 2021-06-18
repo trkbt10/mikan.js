@@ -36,7 +36,9 @@
     var prevType = '';
     var prevWord = '';
     words.forEach(function(word) {
-      var token = word.match(periods) || word.match(joshi)
+      var periodToken = word.match(periods);
+      var joshiToken = word.match(joshi);
+      var token = periodToken || joshiToken;
 
       if (word.match(bracketsBegin)) {
         prevType = 'bracketBegin';
@@ -65,9 +67,9 @@
       }
 
       // 単語のあとの文字がひらがななら結合する
-      if (result.length > 1 && token || (prevType === 'keyword' && word.match(/[ぁ-んゝ]+/g))) {
+      if (result.length > 1 && token || (prevType === 'keyword' && !prevWord.match(/^[とのに]$/g) && !prevWord.match(periods) && word.match(/[ぁ-んゝ]+/g))) {
         result[result.length - 1] += word;
-        prevType = ''
+        if (!joshiToken) prevType = ''
         prevWord = word;
         return;
       }
