@@ -62,6 +62,13 @@ test(t => {
 })
 
 test(t => {
+  const source = 'テンプレートを使用しますか、それとも空白の調査から始めますか？'
+  const expected = [ 'テンプレートを', '使用しますか、', 'それとも', '空白の', '調査から', '始めますか？' ]
+  const result = mikan.split(source)
+  t.deepEqual(result, expected)
+})
+
+test(t => {
   const source = '「あれ」でもない、「これ」でもない。'
   const expected =  ['「あれ」', 'でもない、', '「これ」', 'でもない。']
   const result = mikan.split(source)
