@@ -23,6 +23,9 @@
 
 
   function SimpleAnalyze(str) {
+    if (!str){
+      return [''];
+    }
     var words = str.split(keywords).reduce(function(prev, word) {
       return [].concat(prev, word.split(joshi));
     }).reduce(function(prev, word) {
