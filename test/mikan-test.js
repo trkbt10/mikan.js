@@ -88,3 +88,19 @@ test(t => {
   const result = mikan.split(source)
   t.deepEqual(result, expected)
 })
+
+test(t => {
+  const source = '\n'
+  const expected = ['\n']
+  const result = mikan.split(source)
+  t.deepEqual(result, expected)
+
+})
+
+test(t => {
+  const source = ' '
+  const expected = [' ']
+  const result = mikan.split(source)
+  t.deepEqual(result, expected)
+
+})

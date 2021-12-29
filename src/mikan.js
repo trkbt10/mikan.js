@@ -26,19 +26,15 @@
     if (!str){
       return [''];
     }
-    var words1 = str.split(keywords);
-    var words2 = Array.isArray(words1) ?
-      words1.reduce(function(prev, word) {
-        return [].concat(prev, word.split(joshi));
-      }) : words1;
-    var words = Array.isArray(words2) ?
-      words2.reduce(function(prev, word) {
-        return [].concat(prev, word.split(bracketsBegin));
-      }).reduce(function(prev, word) {
-        return [].concat(prev, word.split(bracketsEnd));
-      }).filter(function(word) {
-        return word;
-      }) : [words2];
+    var words = str.split(keywords).reduce(function(prev, word) {
+      return [].concat(prev, word.split(joshi));
+    }, []).reduce(function(prev, word) {
+      return [].concat(prev, word.split(bracketsBegin));
+    }, []).reduce(function(prev, word) {
+      return [].concat(prev, word.split(bracketsEnd));
+    }, []).filter(function(word) {
+      return word;
+    });
     var result = [];
     var prevType = '';
     var prevWord = '';
