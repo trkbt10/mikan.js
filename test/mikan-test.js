@@ -42,6 +42,13 @@ test(t => {
 })
 
 test(t => {
+  const source = 'ページの読み込みが 50%加速'
+  const expected = [ 'ページの', '読み', '込みが', ' ', '50%', '加速' ]
+  const result = mikan.split(source)
+  t.deepEqual(result, expected)
+})
+
+test(t => {
   const source = '1192'
   const expected = [ '1192' ]
   const result = mikan.split(source)
